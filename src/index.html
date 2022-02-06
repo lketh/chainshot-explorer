@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chainshot Explorer</title>
+    <script src="modal.js" ></script>
+    <script type="module">
+      import { dispatchModal } from "./main.js";
+      window.dispatchModal = dispatchModal;
+    </script>
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  </head>
+  <body>
+    <main class="container">
+    <h1> Chainshot Explorer </h1>
+    <section>
+        <input type="text" value="" placeholder="Search by address or transaction id" id="search-input"/>
+        <button class="contrast"
+          data-target="modal-results"
+          onClick="dispatchModal(event)">
+          Search
+        </button>
+
+      <dialog id="modal-results">
+        <article>
+          <a href="#close"
+            aria-label="Close"
+            class="close"
+            data-target="modal-results"
+            onClick="toggleModal(event)">
+          </a>
+          <h3>Results</h3>
+          <div id="search-results">
+          </div>
+          <footer>
+          <a href="#confirm"
+            role="button"
+            data-target="modal-results"
+            onClick="toggleModal(event)">
+            Close
+          </a>
+          </footer>
+        </article>
+      </dialog>
+
+    </section>
+    <div class="grid">
+      <section id="previous-block">
+        <article>
+          <header>
+            Previous block: <span id="previous-block-id"></span>
+          </header>
+          <ul>
+            <li>Timestamp: <span id="previous-block-timestamp"></span></li>
+            <li>Mined by: <span id="previous-block-minedby"></span></li>
+            <li>Reward: <span id="previous-block-reward"></span></li>
+            <li>Gas used: <span id="previous-block-gasused"></span></li>
+            <li>Gas limit: <span id="previous-block-gaslimit"></span></li>
+            <li>Difficulty: <span id="previous-block-difficulty"></span></li>
+          </ul>
+        </article>
+      </section>
+      <section id="current-block">
+        <article>
+          <header>
+            Current block: <span id="current-block-id"></span>
+          </header>
+          <ul>
+            <li>Timestamp: <span id="current-block-timestamp"></span></li>
+            <li>Mined by: <span id="current-block-minedby"></span></li>
+            <li>Reward: <span id="current-block-reward"></span></li>
+            <li>Gas used: <span id="current-block-gasused"></span></li>
+            <li>Gas limit: <span id="current-block-gaslimit"></span></li>
+            <li>Difficulty: <span id="current-block-difficulty"></span></li>
+          </ul>
+        </article>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section id="transactions">
+        <article>
+          <header>
+            Latest transactions (from current block)
+          </header>
+          <div id="latest-transactions">
+          </div>
+        </article>
+      </section>
+    </div>
+    </main>
+  </body>
+</html>
