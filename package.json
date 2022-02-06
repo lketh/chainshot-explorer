@@ -14,13 +14,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@swc/helpers",
     "@picocss/pico": "^1.4.4",
     "esbuild": "^0.14.18",
-    "ethers": "^5.5.4"
+    "ethers": "^5.5.4",
+    "axios": "^0.25.0",
+    "parcel": "^2.2.1"
   },
   "devDependencies": {
-    "axios": "^0.25.0",
-    "eslint": "^8.8.0",
-    "parcel": "^2.2.1"
+    "eslint": "^8.8.0"
   }
 }
